@@ -11,7 +11,7 @@ namespace ProjetPourTU.Services {
         /// <param name="val2"></param>
         /// <returns></returns>
         public int Multiplier(int val1, int val2) {
-            return val1 * val2 + 1;
+            return val1 * val2;
         }
     }
 }
