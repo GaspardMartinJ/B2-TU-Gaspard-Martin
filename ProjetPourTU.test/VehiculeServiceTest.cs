@@ -28,19 +28,19 @@ namespace ProjetPourTU.test
         [TestCase(1, "AAA")]
         [TestCase(2, "BBB")]
         [TestCase(3, "CCC")]
-        public void searchByIdTest(int ID, string excpected)
+        public void getByIdTest(int ID, string excpected)
         {
             Vehicule result = vehiculeService.getByID(ID);
             Assert.AreEqual(excpected, result.Immatriculation);
         }
         [Test]
-        public void searchByIdInvalidExceptionTest()
+        public void getByIdInvalidExceptionTest()
         {
             Assert.Throws<InvalidIDException>(() => vehiculeService.getByID(0));
         }
 
         [Test]
-        public void searchByIdNotFoundExceptionTest()
+        public void getByIdNotFoundExceptionTest()
         {
             Assert.Throws<VehiculeNotFoundException>(() => vehiculeService.getByID(5));
         }
