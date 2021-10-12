@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 
 namespace ProjetPourTU.Services.CustomExceptions {
-    internal class VehiculeNotFoundException : Exception {
+    public class VehiculeNotFoundException : Exception {
         public VehiculeNotFoundException() {
         }
 
