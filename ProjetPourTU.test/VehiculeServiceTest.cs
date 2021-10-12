@@ -12,6 +12,7 @@ namespace ProjetPourTU.test
     class VehiculeServiceTest
     {
         private VehiculeService vehiculeService;
+        private IEnumerable<Vehicule> vehicules { get; set; }
 
         [SetUp]
         public void Setup()
@@ -30,6 +31,7 @@ namespace ProjetPourTU.test
         [TestCase(3, "CCC")]
         public void getByIdTest(int ID, string excpected)
         {
+            vehicules = vehiculeService.getAll();
             Vehicule result = vehiculeService.getByID(ID);
             Assert.AreEqual(excpected, result.Immatriculation);
         }
@@ -43,6 +45,15 @@ namespace ProjetPourTU.test
         public void getByIdNotFoundExceptionTest()
         {
             Assert.Throws<VehiculeNotFoundException>(() => vehiculeService.getByID(5));
+        }
+
+        [Test]
+        public void AddVehiculeTest()
+        {
+            vehicules = vehiculeService.getAll();
+            Vehicule v = new Vehicule() { ID = 4, Immatriculation = "DDD", Nom = "Test" };
+            vehiculeService.AddVehicule(v);
+            Assert.AreEqual(vehicules.ElementAt(3), v);
         }
     }
 }
